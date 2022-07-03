@@ -20,6 +20,7 @@ package com.github.chr56.android.menu_dsl
 import android.os.Build
 import android.view.Menu
 import android.view.MenuItem
+import android.view.SubMenu
 
 inline fun Menu.add(cfg: MenuItemCfg.() -> Unit): MenuItem {
     val item = MenuItemCfg().apply(cfg)
@@ -49,5 +50,20 @@ inline fun Menu.add(cfg: MenuItemCfg.() -> Unit): MenuItem {
 
         item.customActionView?.also { actionView = it }
         item.actionProvider?.also { actionProvider = it }
+    }
+}
+
+inline fun Menu.addSubMenu(cfg: SubMenuCfg.() -> Unit): SubMenu {
+    val item = SubMenuCfg().apply(cfg)
+    return this.addSubMenu(
+        item.groupId,
+        item.itemId,
+        item.order,
+        item.title
+    ).apply {
+        setIcon(item.icon)
+        setHeaderIcon(item.headerIcon)
+        setHeaderTitle(item.headerTitle)
+        setHeaderView(item.headerView)
     }
 }
