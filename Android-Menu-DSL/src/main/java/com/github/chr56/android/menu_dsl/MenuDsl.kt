@@ -17,17 +17,24 @@
 @file:JvmName("MenuDsl")
 package com.github.chr56.android.menu_dsl
 
+import android.content.Context
 import android.view.Menu
 
-inline fun menu(from: Menu, cfg: MenuContext.() -> Unit) {
-    val menuContext = MenuContext(from)
+@JvmName("attachExt")
+inline fun Context.attach(from: Menu, cfg: MenuContext.() -> Unit) {
+    val menuContext = MenuContext(from, this)
+    menuContext.apply(cfg)
+}
+
+inline fun attach(context: Context, from: Menu, cfg: MenuContext.() -> Unit) {
+    val menuContext = MenuContext(from, context)
     menuContext.apply(cfg)
 }
 
 inline fun MenuContext.menuItem(cfg: MenuItemCfg.() -> Unit) {
-    menu.add(cfg)
+    rootMenu.add(cfg)
 }
 
 inline fun MenuContext.submenu(cfg: SubMenuCfg.() -> Unit) {
-    menu.addSubMenu(cfg)
+    rootMenu.addSubMenu(cfg)
 }
