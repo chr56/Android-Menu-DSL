@@ -27,6 +27,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
 
+@Suppress("NOTHING_TO_INLINE")
 open class MenuItemCfg {
 
     var itemId: Int = Menu.NONE
@@ -46,6 +47,10 @@ open class MenuItemCfg {
     var checked: Boolean = false
 
     var menuItemClickListener: MenuItem.OnMenuItemClickListener? = null
+
+    inline fun onClick(noinline callback: (MenuItem) -> Boolean) {
+        menuItemClickListener = MenuItem.OnMenuItemClickListener(callback)
+    }
 
     var intent: Intent? = null
 
