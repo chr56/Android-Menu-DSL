@@ -81,9 +81,9 @@ inline fun Menu.addSubMenu(menuContext: MenuContext, cfg: SubMenuCfg.() -> Unit)
         item.order,
         item.title
     ).apply {
-        setIcon(item.icon)
-        setHeaderIcon(item.headerIcon)
-        setHeaderTitle(item.headerTitle)
-        setHeaderView(item.headerView)
+        item.icon?.also { setIcon(it) }
+        item.headerIcon?.also { setHeaderIcon(it) }
+        item.headerTitle?.also { setHeaderTitle(it) }
+        item.headerView?.also { setHeaderView(it) }
     }
 }
