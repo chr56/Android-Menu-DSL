@@ -67,8 +67,6 @@ open class MenuItemCfg {
         icon = AppCompatResources.getDrawable(context, id)
     }
 
-    // TODO: SubMenu
-
     companion object {
         const val SHOW_AS_ACTION_NEVER = MenuItem.SHOW_AS_ACTION_NEVER
         const val SHOW_AS_ACTION_IF_ROOM = MenuItem.SHOW_AS_ACTION_IF_ROOM
