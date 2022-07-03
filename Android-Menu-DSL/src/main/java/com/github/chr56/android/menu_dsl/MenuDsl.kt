@@ -27,3 +27,7 @@ inline fun menu(from: Menu, cfg: MenuContext.() -> Unit) {
 inline fun MenuContext.menuItem(cfg: MenuItemCfg.() -> Unit) {
     menu.add(cfg)
 }
+
+inline fun MenuContext.submenu(cfg: SubMenuCfg.() -> Unit) {
+    menu.addSubMenu(cfg)
+}
