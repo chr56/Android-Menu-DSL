@@ -32,9 +32,9 @@ inline fun attach(context: Context, from: Menu, cfg: MenuContext.() -> Unit) {
 }
 
 inline fun MenuContext.menuItem(cfg: MenuItemCfg.() -> Unit) {
-    rootMenu.add(cfg)
+    rootMenu.add(this, cfg)
 }
 
 inline fun MenuContext.submenu(cfg: SubMenuCfg.() -> Unit) {
-    rootMenu.addSubMenu(cfg)
+    rootMenu.addSubMenu(this, cfg)
 }

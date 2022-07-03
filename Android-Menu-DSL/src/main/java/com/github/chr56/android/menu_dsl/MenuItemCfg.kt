@@ -28,7 +28,7 @@ import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
 
 @Suppress("NOTHING_TO_INLINE")
-open class MenuItemCfg {
+open class MenuItemCfg(val menuContext: MenuContext) {
 
     var itemId: Int = Menu.NONE
     var groupId: Int = Menu.NONE

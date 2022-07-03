@@ -22,8 +22,18 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.SubMenu
 
-inline fun Menu.add(cfg: MenuItemCfg.() -> Unit): MenuItem {
-    val item = MenuItemCfg().apply(cfg)
+@Deprecated(
+    "Please keep a menuContext",
+    ReplaceWith(
+        "add(MenuContext(rootMenu = this, null), cfg)",
+        "com.github.chr56.android.menu_dsl.MenuContext"
+    )
+)
+inline fun Menu.add(cfg: MenuItemCfg.() -> Unit): MenuItem =
+    add(MenuContext(rootMenu = this, null), cfg)
+
+inline fun Menu.add(menuContext: MenuContext, cfg: MenuItemCfg.() -> Unit): MenuItem {
+    val item = MenuItemCfg(menuContext).apply(cfg)
     return this.add(
         item.groupId,
         item.itemId,
@@ -53,8 +63,18 @@ inline fun Menu.add(cfg: MenuItemCfg.() -> Unit): MenuItem {
     }
 }
 
-inline fun Menu.addSubMenu(cfg: SubMenuCfg.() -> Unit): SubMenu {
-    val item = SubMenuCfg().apply(cfg)
+@Deprecated(
+    "Please keep a menuContext",
+    ReplaceWith(
+        "addSubMenu(MenuContext(this, null), cfg)",
+        "com.github.chr56.android.menu_dsl.MenuContext"
+    )
+)
+inline fun Menu.addSubMenu(cfg: SubMenuCfg.() -> Unit): SubMenu =
+    addSubMenu(MenuContext(this, null), cfg)
+
+inline fun Menu.addSubMenu(menuContext: MenuContext, cfg: SubMenuCfg.() -> Unit): SubMenu {
+    val item = SubMenuCfg(menuContext).apply(cfg)
     return this.addSubMenu(
         item.groupId,
         item.itemId,

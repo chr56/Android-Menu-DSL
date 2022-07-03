@@ -26,7 +26,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
 
-class SubMenuCfg {
+class SubMenuCfg(val menuContext: MenuContext) {
 
     var itemId: Int = Menu.NONE
     var groupId: Int = Menu.NONE
