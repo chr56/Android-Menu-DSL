@@ -1,8 +1,21 @@
 # Android-Menu-DSL
 
+[![](https://jitpack.io/v/chr56/Android-Menu-DSL.svg)](https://jitpack.io/#chr56/Android-Menu-DSL)
+
 An kotlin Android library to define menu items using kotlin DSL.
 
-### example
+
+### Usage
+
+```groovy
+dependencies {
+    implementation("com.github.chr56:Android-Menu-DSL:Tag")
+}
+```
+Please also add jitpack to repositories list.
+
+
+#### Example
 ```kotlin
  override fun onCreateOptionsMenu(menu: Menu): Boolean {
     menu(from = menu) {
