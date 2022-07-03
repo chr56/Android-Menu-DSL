@@ -18,7 +18,7 @@ Please also add jitpack to repositories list.
 #### Example
 ```kotlin
  override fun onCreateOptionsMenu(menu: Menu): Boolean {
-    menu(from = menu) {
+    attach(from = menu) {
         menuItem {
             itemId = R.id.setting
             title = getString(R.string.title_setting)
@@ -27,8 +27,8 @@ Please also add jitpack to repositories list.
         }
         menuItem {
             itemId = R.id.about
-            icon = AppCompatResources.getDrawable(this@MainActivity,R.drawable.ic_info_outline_white_24dp)
             titleRes(R.string.title_about,this@MainActivity)
+            icon = AppCompatResources.getDrawable(this@MainActivity,R.drawable.ic_info_outline_white_24dp)
             showAsActionFlag = SHOW_AS_ACTION_NEVER
         }
     }
