@@ -21,7 +21,7 @@ import android.os.Build
 import android.view.Menu
 import android.view.MenuItem
 
-fun Menu.add(cfg: MenuItemCfg.() -> Unit): MenuItem {
+inline fun Menu.add(cfg: MenuItemCfg.() -> Unit): MenuItem {
     val item = MenuItemCfg().apply(cfg)
     return this.add(
         item.groupId,

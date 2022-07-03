@@ -19,11 +19,11 @@ package com.github.chr56.android.menu_dsl
 
 import android.view.Menu
 
-fun menu(from: Menu, cfg: MenuContext.() -> Unit) {
+inline fun menu(from: Menu, cfg: MenuContext.() -> Unit) {
     val menuContext = MenuContext(from)
     menuContext.apply(cfg)
 }
 
-fun MenuContext.menuItem(cfg: MenuItemCfg.() -> Unit) {
+inline fun MenuContext.menuItem(cfg: MenuItemCfg.() -> Unit) {
     menu.add(cfg)
 }
