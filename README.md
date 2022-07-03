@@ -4,7 +4,6 @@
 
 An kotlin Android library to define menu items using kotlin DSL.
 
-
 ### Usage
 
 ```groovy
@@ -12,10 +11,11 @@ dependencies {
     implementation("com.github.chr56:Android-Menu-DSL:Tag")
 }
 ```
+
 Please also add jitpack to repositories list.
 
-
 #### Example
+
 ```kotlin
  override fun onCreateOptionsMenu(menu: Menu): Boolean {
     attach(from = menu) {
@@ -34,3 +34,15 @@ Please also add jitpack to repositories list.
     }
 }
 ```
+
+### Changelog
+
+**0.0.3**
+
+- rename function `menu` to `attach`
+- require `menuContext` for all Menu extension functions
+
+**0.0.2**
+
+- add `onClick { }` in MenuItemCfg
+- implement SubMenu (Experiental)
