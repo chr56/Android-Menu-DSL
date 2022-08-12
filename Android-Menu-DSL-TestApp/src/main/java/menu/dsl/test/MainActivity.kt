@@ -22,6 +22,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MenuItem.SHOW_AS_ACTION_NEVER
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import com.github.chr56.android.menu_dsl.attach
@@ -49,6 +50,10 @@ class MainActivity : AppCompatActivity() {
                 icon =
                     AppCompatResources.getDrawable(this@MainActivity, android.R.drawable.ic_menu_preferences)
                 showAsActionFlag = SHOW_AS_ACTION_NEVER
+                onClick {
+                    Toast.makeText(this@MainActivity, "Setting", Toast.LENGTH_SHORT).show()
+                    true
+                }
             }
             menuItem {
                 itemId = R.id.about
