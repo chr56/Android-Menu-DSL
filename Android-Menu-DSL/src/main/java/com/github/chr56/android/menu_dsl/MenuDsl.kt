@@ -34,8 +34,14 @@ inline fun attach(context: Context, from: Menu, cfg: MenuContext.() -> Unit) {
     menuContext.apply(cfg)
 }
 
-inline fun MenuContext.menuItem(cfg: MenuItemContext.() -> Unit): MenuItem =
+fun MenuContext.menuItem(cfg: MenuItemContext.() -> Unit): MenuItem =
     rootMenu.add(this, cfg)
 
-inline fun MenuContext.submenu(cfg: SubMenuCfg.() -> Unit): SubMenu =
+fun MenuContext.submenu(cfg: SubMenuCfg.() -> Unit): SubMenu =
+    rootMenu.addSubMenu(this, cfg)
+
+inline fun MenuContext.menuItemInline(cfg: MenuItemContext.() -> Unit): MenuItem =
+    rootMenu.add(this, cfg)
+
+inline fun MenuContext.submenuInline(cfg: SubMenuCfg.() -> Unit): SubMenu =
     rootMenu.addSubMenu(this, cfg)
