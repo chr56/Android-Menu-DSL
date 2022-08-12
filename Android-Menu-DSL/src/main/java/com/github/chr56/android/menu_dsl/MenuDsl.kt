@@ -34,6 +34,10 @@ inline fun attach(context: Context, from: Menu, cfg: MenuContext.() -> Unit) {
     menuContext.apply(cfg)
 }
 
+//
+// Full Block DSL
+//
+
 fun MenuContext.menuItem(cfg: MenuItemContext.() -> Unit): MenuItem =
     rootMenu.add(this, cfg)
 
@@ -45,3 +49,20 @@ inline fun MenuContext.menuItemInline(cfg: MenuItemContext.() -> Unit): MenuItem
 
 inline fun MenuContext.submenuInline(cfg: SubMenuCfg.() -> Unit): SubMenu =
     rootMenu.addSubMenu(this, cfg)
+
+//
+// Partial Block DSL
+//
+
+fun MenuContext.menuItem(
+    groupId: Int,
+    itemId: Int,
+    order: Int,
+    title: CharSequence,
+    cfg: MenuItemContext.() -> Unit
+): MenuItem = rootMenu.add(this, groupId, itemId, order, title, cfg)
+
+fun MenuContext.menuItem(
+    title: CharSequence,
+    cfg: MenuItemContext.() -> Unit
+): MenuItem = rootMenu.add(this, title, cfg)

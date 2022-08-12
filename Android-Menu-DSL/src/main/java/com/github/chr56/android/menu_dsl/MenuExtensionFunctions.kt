@@ -23,14 +23,33 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.MenuItem.SHOW_AS_ACTION_NEVER
 
-inline fun Menu.add(menuContext: MenuContext, menuItemContextBlock: MenuItemContext.() -> Unit): MenuItem {
+inline fun Menu.add(
+    menuContext: MenuContext,
+    menuItemContextBlock: MenuItemContext.() -> Unit
+): MenuItem {
     val config = MenuItemContext(menuContext).apply(menuItemContextBlock)
-    return this.add(
-        config.groupId,
-        config.itemId,
-        config.order,
-        config.title
-    ).applyCfg(config)
+    return this.add(config.groupId, config.itemId, config.order, config.title).applyCfg(config)
+}
+
+inline fun Menu.add(
+    menuContext: MenuContext,
+    groupId: Int,
+    itemId: Int,
+    order: Int,
+    title: CharSequence,
+    menuItemContextBlock: MenuItemContext.() -> Unit
+): MenuItem {
+    val config = MenuItemContext(menuContext).apply(menuItemContextBlock)
+    return this.add(groupId, itemId, order, title).applyCfg(config)
+}
+
+inline fun Menu.add(
+    menuContext: MenuContext,
+    title: CharSequence,
+    menuItemContextBlock: MenuItemContext.() -> Unit
+): MenuItem {
+    val config = MenuItemContext(menuContext).apply(menuItemContextBlock)
+    return this.add(config.groupId, config.itemId, config.order, title).applyCfg(config)
 }
 
 fun MenuItem.applyCfg(cfg: MenuItemContext): MenuItem {
