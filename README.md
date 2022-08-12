@@ -27,7 +27,7 @@ Please also add jitpack to repositories list.
         }
         menuItem {
             itemId = R.id.about
-            titleRes(R.string.title_about,this@MainActivity)
+            titleRes(R.string.title_about)
             icon = AppCompatResources.getDrawable(this@MainActivity,R.drawable.ic_info_outline_white_24dp)
             showAsActionFlag = SHOW_AS_ACTION_NEVER
         }
