@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Menu DSL Test</string>
+    <string name="title_setting">Setting</string>
+    <string name="title_about">About</string>
 </resources>

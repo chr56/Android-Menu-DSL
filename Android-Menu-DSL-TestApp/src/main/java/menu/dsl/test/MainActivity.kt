@@ -21,7 +21,11 @@ package menu.dsl.test
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.MenuItem.SHOW_AS_ACTION_NEVER
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
+import com.github.chr56.android.menu_dsl.attach
+import com.github.chr56.android.menu_dsl.menuItem
 import menu.dsl.test.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -38,6 +42,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        attach(menu) {
+            menuItem {
+                itemId = R.id.setting
+                title = getString(R.string.title_setting)
+                icon =
+                    AppCompatResources.getDrawable(this@MainActivity, android.R.drawable.ic_menu_preferences)
+                showAsActionFlag = SHOW_AS_ACTION_NEVER
+            }
+            menuItem {
+                itemId = R.id.about
+                titleRes(R.string.title_about)
+                icon =
+                    AppCompatResources.getDrawable(this@MainActivity, android.R.drawable.ic_menu_info_details)
+                showAsActionFlag = SHOW_AS_ACTION_NEVER
+            }
+        }
         return true
     }
 
