@@ -37,6 +37,12 @@ Please also add jitpack to repositories list.
 
 ### Changelog
 
+**0.0.4**
+
+- remove deprecated method
+- return MenuItem for MenuContext.menuItem
+- return Submenu for MenuContext.submenu
+
 **0.0.3**
 
 - rename function `menu` to `attach`
