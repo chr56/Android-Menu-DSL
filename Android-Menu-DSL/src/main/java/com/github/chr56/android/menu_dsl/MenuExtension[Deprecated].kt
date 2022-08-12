@@ -22,6 +22,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.SubMenu
 
+@Deprecated("generated codes too long")
 inline fun Menu.add(menuContext: MenuContext, cfg: MenuItemCfg.() -> Unit): MenuItem {
     val item = MenuItemCfg(menuContext).apply(cfg)
     return this.add(
