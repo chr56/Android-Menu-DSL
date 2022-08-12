@@ -28,7 +28,7 @@ import androidx.appcompat.content.res.AppCompatResources
 
 class MenuItemContext(val menuContext: MenuContext) {
 
-    private val delegate = PropertyMapDelegate()
+    internal val delegate = PropertyMapDelegate()
 
     var itemId: Int
         get() = delegate[ITEM_ID] ?: Menu.NONE

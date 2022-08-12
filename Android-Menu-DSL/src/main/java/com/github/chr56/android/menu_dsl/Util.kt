@@ -18,8 +18,8 @@ package com.github.chr56.android.menu_dsl
 
 import java.lang.Exception
 
-internal class PropertyMapDelegate {
-    private val map: MutableMap<Int, Any?> = LinkedHashMap()
+internal class PropertyMapDelegate : Iterable<Int> {
+    internal val map: MutableMap<Int, Any?> = LinkedHashMap()
     operator fun <T> set(key: Int, value: T) {
         map[key] = value
     }
@@ -31,4 +31,18 @@ internal class PropertyMapDelegate {
             null
         }
     }
+    fun export(): MutableMap<Int, Any?> = map
+
+    /**
+     * only output keys
+     */
+    override fun iterator(): Iterator<Int> =
+        object : Iterator<Int> {
+            val keys = ArrayList(map.keys)
+            var currentIndex = 0
+            override fun hasNext(): Boolean =
+                currentIndex < keys.size
+
+            override fun next(): Int = keys[currentIndex++]
+        }
 }
