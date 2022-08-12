@@ -40,8 +40,8 @@ Please also add jitpack to repositories list.
 **0.0.4**
 
 - remove deprecated method
-- return MenuItem for MenuContext.menuItem
-- return Submenu for MenuContext.submenu
+- return MenuItem for `MenuContext.menuItem()`
+- return Submenu for `MenuContext.submenu()`
 
 **0.0.3**
 
