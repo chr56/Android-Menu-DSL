@@ -15,10 +15,13 @@
  */
 
 @file:JvmName("MenuDsl")
+
 package com.github.chr56.android.menu_dsl
 
 import android.content.Context
 import android.view.Menu
+import android.view.MenuItem
+import android.view.SubMenu
 
 @JvmName("attachExt")
 inline fun Context.attach(from: Menu, cfg: MenuContext.() -> Unit) {
@@ -31,10 +34,8 @@ inline fun attach(context: Context, from: Menu, cfg: MenuContext.() -> Unit) {
     menuContext.apply(cfg)
 }
 
-inline fun MenuContext.menuItem(cfg: MenuItemCfg.() -> Unit) {
+inline fun MenuContext.menuItem(cfg: MenuItemCfg.() -> Unit): MenuItem =
     rootMenu.add(this, cfg)
-}
 
-inline fun MenuContext.submenu(cfg: SubMenuCfg.() -> Unit) {
+inline fun MenuContext.submenu(cfg: SubMenuCfg.() -> Unit): SubMenu =
     rootMenu.addSubMenu(this, cfg)
-}
