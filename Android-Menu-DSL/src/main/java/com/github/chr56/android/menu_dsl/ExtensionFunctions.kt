@@ -99,22 +99,15 @@ fun MenuItem.applyCfg(cfg: MenuItemContext): MenuItem {
 
 inline fun Menu.addSubMenu(
     menuContext: MenuContext,
-    subMenuItemContextBlock: SubMenuItemContext.() -> Unit
-): SubMenu {
-    val config = SubMenuItemContext(menuContext, this).apply(subMenuItemContextBlock)
-    return this.addSubMenu(config.groupId, config.itemId, config.order, config.title).applyCfg(config)
-}
-
-inline fun Menu.addSubMenu(
-    menuContext: MenuContext,
     groupId: Int,
     itemId: Int,
     order: Int,
     title: CharSequence,
     subMenuItemContextBlock: SubMenuItemContext.() -> Unit
 ): SubMenu {
-    val config = SubMenuItemContext(menuContext, this).apply(subMenuItemContextBlock)
-    return this.addSubMenu(groupId, itemId, order, title).applyCfg(config)
+    val subMenu = this.addSubMenu(groupId, itemId, order, title)
+    val config = SubMenuItemContext(menuContext, this, subMenu).apply(subMenuItemContextBlock)
+    return subMenu.applyCfg(config)
 }
 
 inline fun Menu.addSubMenu(
@@ -122,8 +115,9 @@ inline fun Menu.addSubMenu(
     title: CharSequence,
     subMenuItemContextBlock: SubMenuItemContext.() -> Unit
 ): SubMenu {
-    val config = SubMenuItemContext(menuContext, this).apply(subMenuItemContextBlock)
-    return this.addSubMenu(config.groupId, config.itemId, config.order, title).applyCfg(config)
+    val subMenu = this.addSubMenu(title)
+    val config = SubMenuItemContext(menuContext, this, subMenu).apply(subMenuItemContextBlock)
+    return subMenu.applyCfg(config)
 }
 
 fun SubMenu.applyCfg(cfg: SubMenuItemContext): SubMenu {

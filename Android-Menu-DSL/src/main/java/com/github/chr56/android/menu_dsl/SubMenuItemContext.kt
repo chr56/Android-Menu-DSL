@@ -18,12 +18,13 @@ package com.github.chr56.android.menu_dsl
 
 import android.graphics.drawable.Drawable
 import android.view.Menu
+import android.view.SubMenu
 import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
 
-class SubMenuItemContext(val menuContext: MenuContext, val parentMenu: Menu) {
+class SubMenuItemContext(val menuContext: MenuContext, val parentMenu: Menu, val currentMenu: SubMenu) {
     internal val delegate = PropertyMapDelegate()
 
     var itemId: Int
