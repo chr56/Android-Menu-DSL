@@ -54,6 +54,7 @@ inline fun Menu.add(menuContext: MenuContext, cfg: MenuItemCfg.() -> Unit): Menu
     }
 }
 
+@Deprecated("generated codes too long")
 inline fun Menu.addSubMenu(menuContext: MenuContext, cfg: SubMenuCfg.() -> Unit): SubMenu {
     val item = SubMenuCfg(menuContext).apply(cfg)
     return this.addSubMenu(

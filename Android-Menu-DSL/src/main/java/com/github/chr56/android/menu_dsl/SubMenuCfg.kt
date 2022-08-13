@@ -26,6 +26,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
 
+@Deprecated("generated codes too long")
 class SubMenuCfg(val menuContext: MenuContext) {
 
     var itemId: Int = Menu.NONE
