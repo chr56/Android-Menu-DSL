@@ -19,4 +19,4 @@ package com.github.chr56.android.menu_model
 import android.content.Context
 import android.view.Menu
 
-class MenuContext(val rootMenu: Menu, val context: Context)
+class MenuRoot(val rootMenu: Menu, val context: Context)

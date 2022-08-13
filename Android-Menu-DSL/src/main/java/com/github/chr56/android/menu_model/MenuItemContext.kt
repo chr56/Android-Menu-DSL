@@ -45,9 +45,8 @@ import com.github.chr56.android.internal.TITLE
 import com.github.chr56.android.internal.TITLE_CONDENSED
 import com.github.chr56.android.internal.TOOLTIP_TEXT
 import com.github.chr56.android.internal.VISIBLE
-import com.github.chr56.android.menu_model.MenuContext
 
-class MenuItemContext(val menuContext: MenuContext) {
+class MenuItemContext(val menuRoot: MenuRoot) {
 
     internal val delegate = PropertyMapDelegate()
 
@@ -123,9 +122,9 @@ class MenuItemContext(val menuContext: MenuContext) {
         set(value) { delegate[ACTION_PROVIDER] = value }
 
     fun titleRes(@StringRes id: Int) {
-        title = menuContext.context.getString(id)
+        title = menuRoot.context.getString(id)
     }
     fun iconRes(@DrawableRes id: Int) {
-        icon = AppCompatResources.getDrawable(menuContext.context, id)
+        icon = AppCompatResources.getDrawable(menuRoot.context, id)
     }
 }

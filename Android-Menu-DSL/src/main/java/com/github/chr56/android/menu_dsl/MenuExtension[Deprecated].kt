@@ -21,13 +21,13 @@ import android.os.Build
 import android.view.Menu
 import android.view.MenuItem
 import android.view.SubMenu
-import com.github.chr56.android.menu_model.MenuContext
+import com.github.chr56.android.menu_model.MenuRoot
 import com.github.chr56.android.menu_model.MenuItemCfg
 import com.github.chr56.android.menu_model.SubMenuCfg
 
 @Deprecated("generated codes too long")
-inline fun Menu.add(menuContext: MenuContext, cfg: MenuItemCfg.() -> Unit): MenuItem {
-    val item = MenuItemCfg(menuContext).apply(cfg)
+inline fun Menu.add(menuRoot: MenuRoot, cfg: MenuItemCfg.() -> Unit): MenuItem {
+    val item = MenuItemCfg(menuRoot).apply(cfg)
     return this.add(
         item.groupId,
         item.itemId,
@@ -58,8 +58,8 @@ inline fun Menu.add(menuContext: MenuContext, cfg: MenuItemCfg.() -> Unit): Menu
 }
 
 @Deprecated("generated codes too long")
-inline fun Menu.addSubMenu(menuContext: MenuContext, cfg: SubMenuCfg.() -> Unit): SubMenu {
-    val item = SubMenuCfg(menuContext).apply(cfg)
+inline fun Menu.addSubMenu(menuRoot: MenuRoot, cfg: SubMenuCfg.() -> Unit): SubMenu {
+    val item = SubMenuCfg(menuRoot).apply(cfg)
     return this.addSubMenu(
         item.groupId,
         item.itemId,

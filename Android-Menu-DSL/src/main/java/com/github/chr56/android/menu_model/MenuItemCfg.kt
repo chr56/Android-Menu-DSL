@@ -29,7 +29,7 @@ import androidx.appcompat.content.res.AppCompatResources
 
 @Suppress("NOTHING_TO_INLINE")
 @Deprecated("old api")
-open class MenuItemCfg(val menuContext: MenuContext) {
+open class MenuItemCfg(val menuRoot: MenuRoot) {
 
     var itemId: Int = Menu.NONE
     var groupId: Int = Menu.NONE

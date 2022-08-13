@@ -32,9 +32,8 @@ import com.github.chr56.android.internal.ITEM_ID
 import com.github.chr56.android.internal.ORDER
 import com.github.chr56.android.internal.PropertyMapDelegate
 import com.github.chr56.android.internal.TITLE
-import com.github.chr56.android.menu_model.MenuContext
 
-class SubMenuItemContext(val menuContext: MenuContext, val parentMenu: Menu, val currentMenu: SubMenu) {
+class SubMenuItemContext(val menuRoot: MenuRoot, val parentMenu: Menu, val currentMenu: SubMenu) {
     internal val delegate = PropertyMapDelegate()
 
     var itemId: Int
@@ -65,16 +64,16 @@ class SubMenuItemContext(val menuContext: MenuContext, val parentMenu: Menu, val
         set(value) { delegate[HEADER_VIEW] = value }
 
     fun titleRes(@StringRes id: Int) {
-        title = menuContext.context.getString(id)
+        title = menuRoot.context.getString(id)
     }
     fun iconRes(@DrawableRes id: Int) {
-        icon = AppCompatResources.getDrawable(menuContext.context, id)
+        icon = AppCompatResources.getDrawable(menuRoot.context, id)
     }
 
     fun headerTitleRes(@StringRes id: Int) {
-        headerTitle = menuContext.context.getString(id)
+        headerTitle = menuRoot.context.getString(id)
     }
     fun headerIconRes(@DrawableRes id: Int) {
-        headerIcon = AppCompatResources.getDrawable(menuContext.context, id)
+        headerIcon = AppCompatResources.getDrawable(menuRoot.context, id)
     }
 }
