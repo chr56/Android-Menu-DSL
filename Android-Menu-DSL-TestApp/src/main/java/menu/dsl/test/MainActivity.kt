@@ -26,6 +26,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import com.github.chr56.android.menu_dsl.attach
 import com.github.chr56.android.menu_dsl.menuItem
+import com.github.chr56.android.menu_dsl.submenu
 import menu.dsl.test.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -64,6 +65,12 @@ class MainActivity : AppCompatActivity() {
                 icon =
                     AppCompatResources.getDrawable(this@MainActivity, android.R.drawable.ic_menu_info_details)
                 showAsActionFlag = SHOW_AS_ACTION_NEVER
+            }
+            submenu("More") {
+                menuItem("Test 1") {}
+                menuItem {
+                    title = "Test 2"
+                }
             }
         }
     }
