@@ -26,7 +26,7 @@ import com.github.chr56.android.menu_extension.add
 import com.github.chr56.android.menu_extension.addSubMenu
 import com.github.chr56.android.menu_model.MenuRoot
 import com.github.chr56.android.menu_model.MenuItemContext
-import com.github.chr56.android.menu_model.SubMenuItemContext
+import com.github.chr56.android.menu_model.SubMenuContext
 
 //
 // Attach Menu
@@ -57,13 +57,13 @@ inline fun attach(context: Context, from: Menu, cfg: MenuRoot.() -> Unit) {
 fun MenuRoot.menuItem(cfg: MenuItemContext.() -> Unit): MenuItem =
     rootMenu.add(this, cfg)
 
-// fun MenuRoot.subMenu(cfg: SubMenuItemContext.() -> Unit): SubMenu =
+// fun MenuRoot.subMenu(cfg: SubMenuContext.() -> Unit): SubMenu =
 //    rootMenu.addSubMenu(this, cfg)
 
 inline fun MenuRoot.menuItemInline(cfg: MenuItemContext.() -> Unit): MenuItem =
     rootMenu.add(this, cfg)
 
-// inline fun MenuRoot.subMenuInline(cfg: SubMenuItemContext.() -> Unit): SubMenu =
+// inline fun MenuRoot.subMenuInline(cfg: SubMenuContext.() -> Unit): SubMenu =
 //    rootMenu.addSubMenu(this, cfg)
 
 //
@@ -88,42 +88,42 @@ fun MenuRoot.submenu(
     itemId: Int,
     order: Int,
     title: CharSequence,
-    cfg: SubMenuItemContext.() -> Unit
+    cfg: SubMenuContext.() -> Unit
 ): SubMenu =
     rootMenu.addSubMenu(this, groupId, itemId, order, title, cfg)
 
 fun MenuRoot.submenu(
     title: CharSequence,
-    cfg: SubMenuItemContext.() -> Unit
+    cfg: SubMenuContext.() -> Unit
 ): SubMenu =
     rootMenu.addSubMenu(this, title, cfg)
 
 
 
 //
-// Context: SubMenuItemContext (submenu)
+// Context: SubMenuContext (submenu)
 //
 
 //
 // Full Block DSL
 //
 
-fun SubMenuItemContext.menuItem(cfg: MenuItemContext.() -> Unit): MenuItem =
+fun SubMenuContext.menuItem(cfg: MenuItemContext.() -> Unit): MenuItem =
     currentMenu.add(menuRoot, cfg)
 
-// fun SubMenuItemContext.subMenu(cfg: SubMenuItemContext.() -> Unit): SubMenu =
+// fun SubMenuContext.subMenu(cfg: SubMenuContext.() -> Unit): SubMenu =
 //    currentMenu.addSubMenu(MenuRoot, cfg)
 
-inline fun SubMenuItemContext.menuItemInline(cfg: MenuItemContext.() -> Unit): MenuItem =
+inline fun SubMenuContext.menuItemInline(cfg: MenuItemContext.() -> Unit): MenuItem =
     currentMenu.add(menuRoot, cfg)
 
-// inline fun SubMenuItemContext.subMenuInline(cfg: SubMenuItemContext.() -> Unit): SubMenu =
+// inline fun SubMenuContext.subMenuInline(cfg: SubMenuContext.() -> Unit): SubMenu =
 //    currentMenu.addSubMenu(MenuRoot, cfg)
 
 //
 // Partial Block DSL
 //
-fun SubMenuItemContext.menuItem(
+fun SubMenuContext.menuItem(
     groupId: Int,
     itemId: Int,
     order: Int,
@@ -132,24 +132,24 @@ fun SubMenuItemContext.menuItem(
 ): MenuItem =
     currentMenu.add(menuRoot, groupId, itemId, order, title, cfg)
 
-fun SubMenuItemContext.menuItem(
+fun SubMenuContext.menuItem(
     title: CharSequence,
     cfg: MenuItemContext.() -> Unit
 ): MenuItem =
     currentMenu.add(menuRoot, title, cfg)
 
-fun SubMenuItemContext.subMenu(
+fun SubMenuContext.subMenu(
     groupId: Int,
     itemId: Int,
     order: Int,
     title: CharSequence,
-    cfg: SubMenuItemContext.() -> Unit
+    cfg: SubMenuContext.() -> Unit
 ): SubMenu =
     currentMenu.addSubMenu(menuRoot, groupId, itemId, order, title, cfg)
 
-fun SubMenuItemContext.subMenu(
+fun SubMenuContext.subMenu(
     title: CharSequence,
-    cfg: SubMenuItemContext.() -> Unit
+    cfg: SubMenuContext.() -> Unit
 ): SubMenu =
     currentMenu.addSubMenu(menuRoot, title, cfg)
 

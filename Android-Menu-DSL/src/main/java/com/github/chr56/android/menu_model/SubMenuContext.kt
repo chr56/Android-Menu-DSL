@@ -33,7 +33,7 @@ import com.github.chr56.android.internal.ORDER
 import com.github.chr56.android.internal.PropertyMapDelegate
 import com.github.chr56.android.internal.TITLE
 
-class SubMenuItemContext(val menuRoot: MenuRoot, val parentMenu: Menu, val currentMenu: SubMenu) {
+class SubMenuContext(val menuRoot: MenuRoot, val parentMenu: Menu, val currentMenu: SubMenu) {
     internal val delegate = PropertyMapDelegate()
 
     var itemId: Int

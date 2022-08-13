@@ -43,7 +43,7 @@ import com.github.chr56.android.internal.TOOLTIP_TEXT
 import com.github.chr56.android.internal.VISIBLE
 import com.github.chr56.android.menu_model.MenuRoot
 import com.github.chr56.android.menu_model.MenuItemContext
-import com.github.chr56.android.menu_model.SubMenuItemContext
+import com.github.chr56.android.menu_model.SubMenuContext
 
 //
 // Add a MenuItem
@@ -124,24 +124,24 @@ inline fun Menu.addSubMenu(
     itemId: Int,
     order: Int,
     title: CharSequence,
-    subMenuItemContextBlock: SubMenuItemContext.() -> Unit
+    SubMenuContextBlock: SubMenuContext.() -> Unit
 ): SubMenu {
     val subMenu = this.addSubMenu(groupId, itemId, order, title)
-    val config = SubMenuItemContext(menuRoot, this, subMenu).apply(subMenuItemContextBlock)
+    val config = SubMenuContext(menuRoot, this, subMenu).apply(SubMenuContextBlock)
     return subMenu.applyCfg(config)
 }
 
 inline fun Menu.addSubMenu(
     menuRoot: MenuRoot,
     title: CharSequence,
-    subMenuItemContextBlock: SubMenuItemContext.() -> Unit
+    SubMenuContextBlock: SubMenuContext.() -> Unit
 ): SubMenu {
     val subMenu = this.addSubMenu(title)
-    val config = SubMenuItemContext(menuRoot, this, subMenu).apply(subMenuItemContextBlock)
+    val config = SubMenuContext(menuRoot, this, subMenu).apply(SubMenuContextBlock)
     return subMenu.applyCfg(config)
 }
 
-fun SubMenu.applyCfg(cfg: SubMenuItemContext): SubMenu {
+fun SubMenu.applyCfg(cfg: SubMenuContext): SubMenu {
     val delegate = cfg.delegate
     for (key in delegate.iterator()) {
         when (key) {
