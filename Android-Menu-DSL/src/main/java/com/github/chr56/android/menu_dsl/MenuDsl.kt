@@ -22,6 +22,11 @@ import android.content.Context
 import android.view.Menu
 import android.view.MenuItem
 import android.view.SubMenu
+import com.github.chr56.android.menu_extension.add
+import com.github.chr56.android.menu_extension.addSubMenu
+import com.github.chr56.android.menu_model.MenuContext
+import com.github.chr56.android.menu_model.MenuItemContext
+import com.github.chr56.android.menu_model.SubMenuItemContext
 
 //
 // Attach Menu

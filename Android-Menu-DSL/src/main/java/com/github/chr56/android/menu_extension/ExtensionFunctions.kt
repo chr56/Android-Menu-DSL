@@ -16,13 +16,34 @@
 
 @file:JvmName("ExtensionFunctions")
 
-package com.github.chr56.android.menu_dsl
+package com.github.chr56.android.menu_extension
 
 import android.os.Build
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MenuItem.SHOW_AS_ACTION_NEVER
 import android.view.SubMenu
+import com.github.chr56.android.internal.ACTION_PROVIDER
+import com.github.chr56.android.internal.ALPHABETIC_SHORTCUT
+import com.github.chr56.android.internal.CHECKABLE
+import com.github.chr56.android.internal.CHECKED
+import com.github.chr56.android.internal.CONTENT_DESCRIPTION
+import com.github.chr56.android.internal.CUSTOM_ACTIONVIEW
+import com.github.chr56.android.internal.ENABLED
+import com.github.chr56.android.internal.HEADER_ICON
+import com.github.chr56.android.internal.HEADER_TITLE
+import com.github.chr56.android.internal.HEADER_VIEW
+import com.github.chr56.android.internal.ICON
+import com.github.chr56.android.internal.INTENT
+import com.github.chr56.android.internal.MENU_ITEM_CLICK_LISTENER
+import com.github.chr56.android.internal.NUMERIC_SHORTCUT
+import com.github.chr56.android.internal.SHOW_AS_ACTION_FLAG
+import com.github.chr56.android.internal.TITLE_CONDENSED
+import com.github.chr56.android.internal.TOOLTIP_TEXT
+import com.github.chr56.android.internal.VISIBLE
+import com.github.chr56.android.menu_model.MenuContext
+import com.github.chr56.android.menu_model.MenuItemContext
+import com.github.chr56.android.menu_model.SubMenuItemContext
 
 //
 // Add a MenuItem

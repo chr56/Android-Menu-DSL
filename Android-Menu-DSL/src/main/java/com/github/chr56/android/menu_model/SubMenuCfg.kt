@@ -16,7 +16,7 @@
  *
  */
 
-package com.github.chr56.android.menu_dsl
+package com.github.chr56.android.menu_model
 
 import android.content.Context
 import android.graphics.drawable.Drawable
@@ -25,6 +25,7 @@ import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
+import com.github.chr56.android.menu_model.MenuContext
 
 @Deprecated("generated codes too long")
 class SubMenuCfg(val menuContext: MenuContext) {

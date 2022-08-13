@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-package com.github.chr56.android.menu_dsl
+package com.github.chr56.android.internal
 
 import java.lang.Exception
 

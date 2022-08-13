@@ -21,6 +21,9 @@ import android.os.Build
 import android.view.Menu
 import android.view.MenuItem
 import android.view.SubMenu
+import com.github.chr56.android.menu_model.MenuContext
+import com.github.chr56.android.menu_model.MenuItemCfg
+import com.github.chr56.android.menu_model.SubMenuCfg
 
 @Deprecated("generated codes too long")
 inline fun Menu.add(menuContext: MenuContext, cfg: MenuItemCfg.() -> Unit): MenuItem {

@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-package com.github.chr56.android.menu_dsl
+package com.github.chr56.android.menu_model
 
 import android.graphics.drawable.Drawable
 import android.view.Menu
@@ -23,6 +23,16 @@ import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
+import com.github.chr56.android.internal.GROUP_ID
+import com.github.chr56.android.internal.HEADER_ICON
+import com.github.chr56.android.internal.HEADER_TITLE
+import com.github.chr56.android.internal.HEADER_VIEW
+import com.github.chr56.android.internal.ICON
+import com.github.chr56.android.internal.ITEM_ID
+import com.github.chr56.android.internal.ORDER
+import com.github.chr56.android.internal.PropertyMapDelegate
+import com.github.chr56.android.internal.TITLE
+import com.github.chr56.android.menu_model.MenuContext
 
 class SubMenuItemContext(val menuContext: MenuContext, val parentMenu: Menu, val currentMenu: SubMenu) {
     internal val delegate = PropertyMapDelegate()

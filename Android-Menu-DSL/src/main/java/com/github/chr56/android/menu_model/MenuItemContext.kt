@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-package com.github.chr56.android.menu_dsl
+package com.github.chr56.android.menu_model
 
 import android.content.Intent
 import android.graphics.drawable.Drawable
@@ -25,6 +25,27 @@ import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
+import com.github.chr56.android.internal.ACTION_PROVIDER
+import com.github.chr56.android.internal.ALPHABETIC_SHORTCUT
+import com.github.chr56.android.internal.CHECKABLE
+import com.github.chr56.android.internal.CHECKED
+import com.github.chr56.android.internal.CONTENT_DESCRIPTION
+import com.github.chr56.android.internal.CUSTOM_ACTIONVIEW
+import com.github.chr56.android.internal.ENABLED
+import com.github.chr56.android.internal.GROUP_ID
+import com.github.chr56.android.internal.ICON
+import com.github.chr56.android.internal.INTENT
+import com.github.chr56.android.internal.ITEM_ID
+import com.github.chr56.android.internal.MENU_ITEM_CLICK_LISTENER
+import com.github.chr56.android.internal.NUMERIC_SHORTCUT
+import com.github.chr56.android.internal.ORDER
+import com.github.chr56.android.internal.PropertyMapDelegate
+import com.github.chr56.android.internal.SHOW_AS_ACTION_FLAG
+import com.github.chr56.android.internal.TITLE
+import com.github.chr56.android.internal.TITLE_CONDENSED
+import com.github.chr56.android.internal.TOOLTIP_TEXT
+import com.github.chr56.android.internal.VISIBLE
+import com.github.chr56.android.menu_model.MenuContext
 
 class MenuItemContext(val menuContext: MenuContext) {
 

@@ -16,7 +16,7 @@
 
 @file:JvmName("Keys")
 
-package com.github.chr56.android.menu_dsl
+package com.github.chr56.android.internal
 
 // Keys
 internal const val TITLE = 1
