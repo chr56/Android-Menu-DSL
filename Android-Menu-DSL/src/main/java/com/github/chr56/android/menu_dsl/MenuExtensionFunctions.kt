@@ -22,6 +22,7 @@ import android.os.Build
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MenuItem.SHOW_AS_ACTION_NEVER
+import android.view.SubMenu
 
 inline fun Menu.add(
     menuContext: MenuContext,
@@ -83,6 +84,48 @@ fun MenuItem.applyCfg(cfg: MenuItemContext): MenuItem {
 
             CUSTOM_ACTIONVIEW -> actionProvider = delegate[CUSTOM_ACTIONVIEW]
             ACTION_PROVIDER -> actionProvider = delegate[ACTION_PROVIDER]
+        }
+    }
+    return this
+}
+
+inline fun Menu.addSubMenu(
+    menuContext: MenuContext,
+    subMenuItemContextBlock: SubMenuItemContext.() -> Unit
+): SubMenu {
+    val config = SubMenuItemContext(menuContext).apply(subMenuItemContextBlock)
+    return this.addSubMenu(config.groupId, config.itemId, config.order, config.title).applyCfg(config)
+}
+
+inline fun Menu.addSubMenu(
+    menuContext: MenuContext,
+    groupId: Int,
+    itemId: Int,
+    order: Int,
+    title: CharSequence,
+    subMenuItemContextBlock: SubMenuItemContext.() -> Unit
+): SubMenu {
+    val config = SubMenuItemContext(menuContext).apply(subMenuItemContextBlock)
+    return this.addSubMenu(groupId, itemId, order, title).applyCfg(config)
+}
+
+inline fun Menu.addSubMenu(
+    menuContext: MenuContext,
+    title: CharSequence,
+    subMenuItemContextBlock: SubMenuItemContext.() -> Unit
+): SubMenu {
+    val config = SubMenuItemContext(menuContext).apply(subMenuItemContextBlock)
+    return this.addSubMenu(config.groupId, config.itemId, config.order, title).applyCfg(config)
+}
+
+fun SubMenu.applyCfg(cfg: SubMenuItemContext): SubMenu {
+    val delegate = cfg.delegate
+    for (key in delegate.iterator()) {
+        when (key) {
+            ICON -> setIcon(delegate[ICON])
+            HEADER_TITLE -> setHeaderTitle(delegate[HEADER_TITLE])
+            HEADER_ICON -> setHeaderIcon(delegate[HEADER_ICON])
+            HEADER_VIEW -> setHeaderView(delegate[HEADER_VIEW])
         }
     }
     return this
