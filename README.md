@@ -31,6 +31,12 @@ Please also add jitpack to repositories list.
             icon = AppCompatResources.getDrawable(this@MainActivity,R.drawable.ic_info_outline_white_24dp)
             showAsActionFlag = SHOW_AS_ACTION_NEVER
         }
+        submenu("More") {
+            menuItem("Test 1") {}
+            menuItem {
+                title = "Test 2"
+            }
+        }
     }
 }
 ```
