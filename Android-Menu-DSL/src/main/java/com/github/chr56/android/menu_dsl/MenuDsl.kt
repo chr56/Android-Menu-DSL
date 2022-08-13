@@ -23,6 +23,11 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.SubMenu
 
+//
+// Attach Menu
+// Context: AndroidContext
+//
+
 @JvmName("attachExt")
 inline fun Context.attach(from: Menu, cfg: MenuContext.() -> Unit) {
     val menuContext = MenuContext(from, this)
@@ -33,6 +38,12 @@ inline fun attach(context: Context, from: Menu, cfg: MenuContext.() -> Unit) {
     val menuContext = MenuContext(from, context)
     menuContext.apply(cfg)
 }
+
+
+//
+// Context: MenuContext (root)
+//
+
 
 //
 // Full Block DSL
@@ -49,18 +60,6 @@ inline fun MenuContext.menuItemInline(cfg: MenuItemContext.() -> Unit): MenuItem
 
 inline fun MenuContext.subMenuInline(cfg: SubMenuItemContext.() -> Unit): SubMenu =
     rootMenu.addSubMenu(this, cfg)
-
-fun SubMenuItemContext.menuItem(cfg: MenuItemContext.() -> Unit): MenuItem =
-    parentMenu.add(menuContext, cfg)
-
-fun SubMenuItemContext.subMenu(cfg: SubMenuItemContext.() -> Unit): SubMenu =
-    parentMenu.addSubMenu(menuContext, cfg)
-
-inline fun SubMenuItemContext.menuItemInline(cfg: MenuItemContext.() -> Unit): MenuItem =
-    parentMenu.add(menuContext, cfg)
-
-inline fun SubMenuItemContext.subMenuInline(cfg: SubMenuItemContext.() -> Unit): SubMenu =
-    parentMenu.addSubMenu(menuContext, cfg)
 
 //
 // Partial Block DSL
@@ -94,6 +93,32 @@ fun MenuContext.submenu(
 ): SubMenu =
     rootMenu.addSubMenu(this, title, cfg)
 
+
+
+//
+// Context: SubMenuItemContext (submenu)
+//
+
+//
+// Full Block DSL
+//
+
+fun SubMenuItemContext.menuItem(cfg: MenuItemContext.() -> Unit): MenuItem =
+    parentMenu.add(menuContext, cfg)
+
+fun SubMenuItemContext.subMenu(cfg: SubMenuItemContext.() -> Unit): SubMenu =
+    parentMenu.addSubMenu(menuContext, cfg)
+
+inline fun SubMenuItemContext.menuItemInline(cfg: MenuItemContext.() -> Unit): MenuItem =
+    parentMenu.add(menuContext, cfg)
+
+inline fun SubMenuItemContext.subMenuInline(cfg: SubMenuItemContext.() -> Unit): SubMenu =
+    parentMenu.addSubMenu(menuContext, cfg)
+
+
+//
+// Partial Block DSL
+//
 fun SubMenuItemContext.menuItem(
     groupId: Int,
     itemId: Int,
@@ -123,3 +148,4 @@ fun SubMenuItemContext.subMenu(
     cfg: SubMenuItemContext.() -> Unit
 ): SubMenu =
     parentMenu.addSubMenu(menuContext, title, cfg)
+
