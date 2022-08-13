@@ -23,7 +23,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
 
-class SubMenuItemContext(val menuContext: MenuContext) {
+class SubMenuItemContext(val menuContext: MenuContext, val parentMenu: Menu) {
     internal val delegate = PropertyMapDelegate()
 
     var itemId: Int
