@@ -37,6 +37,11 @@ Please also add jitpack to repositories list.
 
 ### Changelog
 
+**0.1.0**
+- use new way to create menu items to reduce code generated
+- slightly redesign api & reorganize package
+- fully support SubMenu and its DSL
+
 **0.0.4**
 
 - remove deprecated method
