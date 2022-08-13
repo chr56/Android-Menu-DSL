@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-@file:JvmName("MenuExtensionFunctions")
+@file:JvmName("ExtensionFunctions")
 
 package com.github.chr56.android.menu_dsl
 
@@ -23,6 +23,10 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.MenuItem.SHOW_AS_ACTION_NEVER
 import android.view.SubMenu
+
+//
+// Add a MenuItem
+//
 
 inline fun Menu.add(
     menuContext: MenuContext,
@@ -88,6 +92,10 @@ fun MenuItem.applyCfg(cfg: MenuItemContext): MenuItem {
     }
     return this
 }
+
+//
+// Add a SubMenu
+//
 
 inline fun Menu.addSubMenu(
     menuContext: MenuContext,
