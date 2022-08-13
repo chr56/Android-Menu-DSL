@@ -49,3 +49,8 @@ internal const val ALPHABETIC_SHORTCUT = 17
 
 internal const val CUSTOM_ACTIONVIEW = 18
 internal const val ACTION_PROVIDER = 19
+
+
+internal const val HEADER_TITLE = 30
+internal const val HEADER_ICON = 31
+internal const val HEADER_VIEW = 32
