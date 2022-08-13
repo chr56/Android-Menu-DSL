@@ -50,6 +50,18 @@ inline fun MenuContext.menuItemInline(cfg: MenuItemContext.() -> Unit): MenuItem
 inline fun MenuContext.subMenuInline(cfg: SubMenuItemContext.() -> Unit): SubMenu =
     rootMenu.addSubMenu(this, cfg)
 
+fun SubMenuItemContext.menuItem(cfg: MenuItemContext.() -> Unit): MenuItem =
+    parentMenu.add(menuContext, cfg)
+
+fun SubMenuItemContext.subMenu(cfg: SubMenuItemContext.() -> Unit): SubMenu =
+    parentMenu.addSubMenu(menuContext, cfg)
+
+inline fun SubMenuItemContext.menuItemInline(cfg: MenuItemContext.() -> Unit): MenuItem =
+    parentMenu.add(menuContext, cfg)
+
+inline fun SubMenuItemContext.subMenuInline(cfg: SubMenuItemContext.() -> Unit): SubMenu =
+    parentMenu.addSubMenu(menuContext, cfg)
+
 //
 // Partial Block DSL
 //
@@ -81,3 +93,33 @@ fun MenuContext.submenu(
     cfg: SubMenuItemContext.() -> Unit
 ): SubMenu =
     rootMenu.addSubMenu(this, title, cfg)
+
+fun SubMenuItemContext.menuItem(
+    groupId: Int,
+    itemId: Int,
+    order: Int,
+    title: CharSequence,
+    cfg: MenuItemContext.() -> Unit
+): MenuItem =
+    parentMenu.add(menuContext, groupId, itemId, order, title, cfg)
+
+fun SubMenuItemContext.menuItem(
+    title: CharSequence,
+    cfg: MenuItemContext.() -> Unit
+): MenuItem =
+    parentMenu.add(menuContext, title, cfg)
+
+fun SubMenuItemContext.subMenu(
+    groupId: Int,
+    itemId: Int,
+    order: Int,
+    title: CharSequence,
+    cfg: SubMenuItemContext.() -> Unit
+): SubMenu =
+    parentMenu.addSubMenu(menuContext, groupId, itemId, order, title, cfg)
+
+fun SubMenuItemContext.subMenu(
+    title: CharSequence,
+    cfg: SubMenuItemContext.() -> Unit
+): SubMenu =
+    parentMenu.addSubMenu(menuContext, title, cfg)
