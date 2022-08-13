@@ -107,7 +107,7 @@ fun MenuItem.applyCfg(cfg: MenuItemContext): MenuItem {
             NUMERIC_SHORTCUT -> numericShortcut = delegate[NUMERIC_SHORTCUT]!!
             ALPHABETIC_SHORTCUT -> alphabeticShortcut = delegate[ALPHABETIC_SHORTCUT]!!
 
-            CUSTOM_ACTIONVIEW -> actionProvider = delegate[CUSTOM_ACTIONVIEW]
+            CUSTOM_ACTIONVIEW -> actionView = delegate[CUSTOM_ACTIONVIEW]
             ACTION_PROVIDER -> actionProvider = delegate[ACTION_PROVIDER]
         }
     }
