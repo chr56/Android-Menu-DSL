@@ -39,7 +39,7 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.4.2")
 }
 
-val libVersion = "0.0.4"
+val libVersion = "0.1.0-alpha"
 
 publishing {
     publications {
