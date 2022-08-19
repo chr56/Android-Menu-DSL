@@ -42,7 +42,7 @@ tasks.create("sourceJar", Jar::class.java) {
 
 dependencies {
     implementation("androidx.annotation:annotation:1.3.0")
-    compileOnly("androidx.appcompat:appcompat:1.3.1")
+    compileOnly("androidx.appcompat:appcompat-resources:1.3.1")
 }
 
 val libVersion = "0.1.0-beta01"
