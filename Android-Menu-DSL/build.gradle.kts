@@ -27,6 +27,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
 }
 
 tasks.create("sourceJar", Jar::class.java) {
@@ -43,16 +49,14 @@ val libVersion = "0.1.0-beta01"
 
 publishing {
     publications {
-        this.create("release", MavenPublication::class.java) {
-
-            artifact(tasks.getByName("sourceJar"))
-            afterEvaluate {
-                artifact(tasks.getByName("bundleReleaseAar"))
-            }
+        create("release", MavenPublication::class.java) {
 
             groupId = "com.github.chr56"
             artifactId = "android-menu-dsl"
             version = libVersion
+            afterEvaluate {
+                from(components["release"])
+            }
         }
     }
 }
