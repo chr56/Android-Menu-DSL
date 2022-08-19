@@ -9,10 +9,22 @@ An kotlin Android library to define menu items using kotlin DSL.
 ```groovy
 dependencies {
     implementation("com.github.chr56:Android-Menu-DSL:Tag")
+    // Android-Menu-DSL use `AppCompatResources` in `androidx.appcompat`,
+    // however, you need declare manually:
+    // for example, `1.3.1` is currently used in compiling this library,
+    // but any version of androidx should be working 
+    implementation("androidx.appcompat:appcompat:1.3.1")
+    // or minified implementation (AppCompatResources is in `appcompat-resources`)
+    implementation("androidx.appcompat:appcompat-resources:1.3.1")
 }
 ```
 
 Please also add jitpack to repositories list.
+```groovy
+repositories {
+        maven(url = "https://jitpack.io")
+    }
+```
 
 #### Example
 
@@ -44,6 +56,7 @@ Please also add jitpack to repositories list.
 ### Changelog
 
 **0.1.0**
+
 - use new way to create menu items to reduce code generated
 - slightly redesign api & reorganize package
 - fully support SubMenu and its DSL
