@@ -2,7 +2,7 @@
 
 [![](https://jitpack.io/v/chr56/Android-Menu-DSL.svg)](https://jitpack.io/#chr56/Android-Menu-DSL)
 
-An kotlin Android library to define menu items using kotlin DSL.
+A kotlin Android library to define menu items using kotlin DSL.
 
 ### Usage
 
@@ -20,13 +20,14 @@ dependencies {
 ```
 
 Please also add jitpack to repositories list.
+
 ```groovy
 repositories {
-        maven(url = "https://jitpack.io")
-    }
+    maven(url = "https://jitpack.io")
+}
 ```
 
-#### Example
+### Example
 
 ```kotlin
  override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -34,13 +35,15 @@ repositories {
         menuItem {
             itemId = R.id.setting
             title = getString(R.string.title_setting)
-            icon = AppCompatResources.getDrawable(this@MainActivity,R.drawable.ic_settings_white_24dp)
+            icon =
+                AppCompatResources.getDrawable(this@MainActivity, R.drawable.ic_settings_white_24dp)
             showAsActionFlag = SHOW_AS_ACTION_NEVER
         }
         menuItem {
             itemId = R.id.about
             titleRes(R.string.title_about)
-            icon = AppCompatResources.getDrawable(this@MainActivity,R.drawable.ic_info_outline_white_24dp)
+            icon =
+                AppCompatResources.getDrawable(this@MainActivity, R.drawable.ic_info_outline_white_24dp)
             showAsActionFlag = SHOW_AS_ACTION_NEVER
         }
         submenu("More") {
