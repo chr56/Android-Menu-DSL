@@ -45,7 +45,7 @@ dependencies {
     compileOnly("androidx.appcompat:appcompat-resources:1.3.1")
 }
 
-val libVersion = "0.1.0-beta01"
+val libVersion = "0.1.0-beta02"
 
 publishing {
     publications {
