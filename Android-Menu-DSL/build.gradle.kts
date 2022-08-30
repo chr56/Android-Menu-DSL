@@ -65,7 +65,7 @@ publishing {
     publications {
         create("release", MavenPublication::class.java) {
 
-            groupId = "com.github.chr56"
+            groupId = "io.github.chr56"
             artifactId = "android-menu-dsl"
             version = libVersion
             afterEvaluate {
