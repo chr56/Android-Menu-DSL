@@ -57,6 +57,31 @@ publishing {
             afterEvaluate {
                 from(components["release"])
             }
+
+            pom {
+                name.set("Android Menu DSL")
+                description.set("A kotlin Android library to define menu items using kotlin DSL.")
+                url.set("https://github.com/chr56/Android-Menu-DSL")
+
+                licenses {
+                    license {
+                        name.set("The Apache License, Version 2.0")
+                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set("chr_56")
+                        name.set("chr_56")
+                        timezone.set("UTC+8")
+                    }
+                }
+                scm {
+                    connection.set("https://github.com/chr56/Android-Menu-DSL.git")
+                    developerConnection.set("https://github.com/chr56/Android-Menu-DSL.git")
+                    url.set("https://github.com/chr56/Android-Menu-DSL")
+                }
+            }
         }
     }
 }
