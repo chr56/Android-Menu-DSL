@@ -1,7 +1,10 @@
+import java.util.*
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("maven-publish")
+    id("signing")
 }
 
 android {
@@ -17,7 +20,10 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -46,6 +52,14 @@ dependencies {
 }
 
 val libVersion = "0.1.0"
+
+val secretPropsFile = rootProject.file("secrets.properties")
+var secrets = Properties()
+if (secretPropsFile.exists()) {
+    secretPropsFile.inputStream().use {
+        secrets.load(it)
+    }
+}
 
 publishing {
     publications {
@@ -84,4 +98,13 @@ publishing {
             }
         }
     }
+}
+signing {
+    sign(publishing.publications)
+    val key = File(secrets["signing_file"] as String).readText()
+    useInMemoryPgpKeys(
+        secrets["signing_key"] as String,
+        key,
+        secrets["signing_password"] as String
+    )
 }
