@@ -99,12 +99,14 @@ publishing {
         }
     }
 }
-signing {
-    sign(publishing.publications)
-    val key = File(secrets["signing_file"] as String).readText()
-    useInMemoryPgpKeys(
-        secrets["signing_key"] as String,
-        key,
-        secrets["signing_password"] as String
-    )
+if (secretPropsFile.exists()) {
+    signing {
+        sign(publishing.publications)
+        val key = File(secrets["signing_file"] as String).readText()
+        useInMemoryPgpKeys(
+            secrets["signing_key"] as String,
+            key,
+            secrets["signing_password"] as String
+        )
+    }
 }
