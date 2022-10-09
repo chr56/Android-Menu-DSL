@@ -7,6 +7,7 @@ android {
     compileSdk = 33
 
     defaultConfig {
+        namespace = "menu.dsl.test"
         applicationId = "menu.dsl.test"
         minSdk = 24
         targetSdk = 33

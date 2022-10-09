@@ -9,6 +9,7 @@ plugins {
 
 android {
     compileSdk = 33
+    namespace = "com.github.chr56.android.menu_dsl"
 
     defaultConfig {
         minSdk = 21
