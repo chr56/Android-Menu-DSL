@@ -58,6 +58,10 @@ repositories {
 
 ### Changelog
 
+**0.1.1**
+- update toolchains
+
+
 **0.1.0**
 
 - use new way to create menu items to reduce code generated
