@@ -51,7 +51,7 @@ dependencies {
     compileOnly("androidx.appcompat:appcompat-resources:1.5.1")
 }
 
-val libVersion = "0.1.2"
+val libVersion = "0.1.3"
 
 val secretPropsFile = rootProject.file("secrets.properties")
 var secrets = Properties()
