@@ -13,9 +13,9 @@ dependencies {
     // however, you need declare manually:
     // for example, `1.4.2` is currently used in compiling this library,
     // but any version of androidx should be working 
-    implementation("androidx.appcompat:appcompat:1.4.2")
+    implementation("androidx.appcompat:appcompat:1.5.1")
     // or minified implementation (AppCompatResources is in `appcompat-resources`)
-    implementation("androidx.appcompat:appcompat-resources:1.4.2")
+    implementation("androidx.appcompat:appcompat-resources:1.5.1")
 }
 ```
 
@@ -57,6 +57,9 @@ repositories {
 ```
 
 ### Changelog
+
+**0.1.3**
+- update toolchains
 
 **0.1.2**
 - update toolchains
