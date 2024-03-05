@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    compileSdk = 33
+    compileSdk = 34
     namespace = "com.github.chr56.android.menu_dsl"
 
     defaultConfig {
