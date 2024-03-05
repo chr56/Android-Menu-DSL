@@ -1,5 +1,5 @@
 plugins {
-    val agp = "8.0.2"
+    val agp = "8.2.2"
     id("com.android.library") version agp apply false
     id("com.android.application") version agp apply false
     val kotlinVersion = "1.8.10"
