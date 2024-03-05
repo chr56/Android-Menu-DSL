@@ -47,7 +47,7 @@ tasks.create("sourceJar", Jar::class.java) {
 }
 
 dependencies {
-    implementation("androidx.annotation:annotation:1.5.0")
+    implementation("androidx.annotation:annotation:1.7.1")
     compileOnly("androidx.appcompat:appcompat-resources:1.6.1")
 }
 
