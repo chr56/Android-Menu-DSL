@@ -16,13 +16,13 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
       - name: set up JDK 17
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'adopt'
@@ -32,7 +32,7 @@ jobs:
         run: ./gradlew Android-Menu-DSL:assembleRelease --stacktrace --parallel
 
       - name: Upload aar
-        uses: actions/upload-artifact@v2.3.1
+        uses: actions/upload-artifact@v4
         with:
           name: Android-Menu-DSL
           retention-days: 3
