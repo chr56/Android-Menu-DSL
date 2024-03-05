@@ -1,8 +1,8 @@
 import java.util.*
 
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.androidGradlePluginLibrary)
+    alias(libs.plugins.kotlin.android)
     id("maven-publish")
     id("signing")
 }
@@ -47,8 +47,8 @@ tasks.create("sourceJar", Jar::class.java) {
 }
 
 dependencies {
-    implementation("androidx.annotation:annotation:1.7.1")
-    compileOnly("androidx.appcompat:appcompat-resources:1.6.1")
+    implementation(libs.androidx.annotation)
+    compileOnly(libs.androidx.appcompat.resources)
 }
 
 val libVersion = "0.1.3"
